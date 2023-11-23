@@ -1,6 +1,6 @@
 from mesa import Agent, Model
-from mesa.space import MultiGrid
-from mesa.time import RandomActivation
+from mesa.space import MultiGrid, SingleGrid
+from mesa.time import RandomActivation, BaseScheduler
 from mesa.datacollection import DataCollector
 from matplotlib.colors import ListedColormap
 
@@ -18,14 +18,15 @@ import datetime
 
 def get_grid(model):
     grid = np.full((model.grid.width, model.grid.height), 0)
-    
+
     for cell in model.grid.coord_iter():
         cell_content, cell_pos = cell
-        agent = cell_content[0] if len(cell_content) != 0 else None
-        if hasattr(agent, 'maiz'):
-            grid[cell_pos[0], cell_pos[1]] = agent.maiz
-        elif hasattr(agent, 'tractor'):
-            grid[cell_pos[0], cell_pos[1]] = agent.tractor
+        agent = cell_content[0] if cell_content is not None and len(cell_content) > 0 else None
+        if agent is not None:
+            if hasattr(agent, 'maiz'):
+                grid[cell_pos[0], cell_pos[1]] = agent.maiz
+            elif hasattr(agent, 'tractor'):
+                grid[cell_pos[0], cell_pos[1]] = agent.tractor
 
     return grid
 
@@ -94,25 +95,36 @@ class HarvestModel(Model):
         self.num_tractors = T
         self.num_maiz = M
         self.grid = MultiGrid(width, height, False)
-        self.schedule = RandomActivation(self)
+        self.schedule = BaseScheduler(self)
         self.total_maiz = 0
 
-        for i in range(self.num_maiz):
-            m = MaizAgent(i, self)
+        self.x_coords = [i for i in range (width)]
+        self.y_coords = [j for j in range (height)]
+        self.coords = [(x, y) for x in self.x_coords for y in self.y_coords if x < width - 1 or y < height - 1] #para que se llene -1 casilla 
+        #self.coords = [(x, y) for x in self.x_coords for y in self.y_coords if x < width - 1 and y < height - 1] #para que se llene -1row y una columna 
+        self.n = 0
+        print(self.coords)
+
+        self.r = 0
+
+        while (self.coords):
+            m = MaizAgent(self.r, self)
+            self.coord = self.coords.pop(self.n)
+            x = self.coord[0]
+            y = self.coord[1]
             self.schedule.add(m)
-
-            x = self.random.randrange(self.grid.width)
-            y = self.random.randrange(self.grid.height)
-
             self.grid.place_agent(m, (x, y))
-
-        start = self.num_maiz + 1
+            self.r += 1
+            
+        start = self.r + 1
         finish = self.num_tractors + start
 
         for i in range(start, finish):
             t = TractorAgent(i, self)
             self.schedule.add(t)
-            self.grid.place_agent(t, (0, 0))
+            self.grid.place_agent(t, (x, y)) #jala para una casilla pero todo es rojo :| 
+            #self.grid.place_agent(t, (x, y + 1)) #solo jala sin row y sin columna
+                                                    #si se usa con la casilla jala pero el terreno es blanco y el agente tractor tiene color
 
         self.datacollector = DataCollector(model_reporters={'Grid': get_grid})
 
@@ -132,23 +144,23 @@ class HarvestModel(Model):
         self.schedule.step()
         self.maiz_left_total = self.maiz_counter()
 
-GRID_SIZE = 10
+GRID_SIZE = 12
 num_tractors = 1
-num_dirt = 100
+num_dirt = GRID_SIZE^2
 num_generations = 500
 num_steps = 0
 
 start_time = time.time()
 model = HarvestModel(num_tractors, num_dirt, GRID_SIZE, GRID_SIZE)
 for i in range(num_generations):
-  model.step()
-  if (i == (num_generations - 1)):
-    for cell in model.grid.coord_iter():
-      cell_content, cell_pos = cell
-      if len(cell_content) != 0:
-        if hasattr(cell_content[0], 'quantity_of_steps'):
-          agent = cell_content[0]
-          num_steps += agent.quantity_of_steps
+    model.step()
+    if (i == (num_generations - 1)):
+        for cell in model.grid.coord_iter():
+            cell_content, cell_pos = cell
+            if len(cell_content) != 0:
+                if hasattr(cell_content[0], 'quantity_of_steps'):
+                    agent = cell_content[0]
+                    num_steps += agent.quantity_of_steps
 
 print(f"total number of steps: {num_steps - num_tractors}")
 print(f"Execution time: ", str(datetime.timedelta(seconds = (time.time() - start_time))))
@@ -158,8 +170,6 @@ all_grid = model.datacollector.get_model_vars_dataframe()
 final_maiz_left = model.maiz_left_total
 
 print(f"total maiz left: {final_maiz_left}")
-
-# ... (Tu código permanece igual hasta aquí)
 
 fig, axis = plt.subplots(figsize=(5, 5))
 axis.set_xticks([])
