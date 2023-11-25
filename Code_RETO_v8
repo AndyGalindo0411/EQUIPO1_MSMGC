@@ -1,0 +1,29 @@
+    def __init__(self, unique_id, model):
+        super().__init__(unique_id, model)
+        self.next_step = None
+        self.tractor = 2
+        self.number_of_steps = 0
+        self.tractor_positions = []
+
+    def move(self):
+        neighbors = self.model.grid.get_neighborhood(
+            self.pos,
+            moore=True,
+            include_center=False
+        )
+
+        # Filter out border cells and obstacle position from the available positions
+        neighbors = [pos for pos in neighbors if
+                     0 < pos[0] < self.model.grid.width - 1 and 0 < pos[1] < self.model.grid.height - 1]
+
+        open_positions = [pos for pos in neighbors if not
+                          any(isinstance(agent, (TractorAgent, ObstacleAgent, RecollectorAgent))
+                              for agent in self.model.grid.get_cell_list_contents(pos))]
+
+        if open_positions:
+            self.next_step = open_positions[np.random.randint(len(open_positions))]
+            self.model.grid.move_agent(self, self.next_step)
+            self.number_of_steps += 1
+
+            # Keep track of the tractor's positions
+            self.tractor_positions.append(self.pos)
