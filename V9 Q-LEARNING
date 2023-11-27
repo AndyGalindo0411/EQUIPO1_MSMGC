@@ -1,0 +1,75 @@
+class TractorAgent(Agent):
+    def __init__(self, unique_id, model):
+        super().__init__(unique_id, model)
+        self.next_step = None
+        self.tractor = 2
+        self.number_of_steps = 0
+        self.q_table = {} #inicializar la tabla Q vacía
+
+    def move(self):
+        neighbors = self.model.grid.get_neighborhood(
+            self.pos,
+            moore=True,
+            include_center=False
+        )
+        #consultar la tabla q para elegir la mejor acción
+        current_state = self.pos
+        available_Actions = self.get_Available_actios()
+        if current_state not in self.q_table:
+          self.q_table[current_state] = {action: 0 for actioin in available_actions}
+          #elegir la acción con el valor q más alto
+          best_action = max(self.q_table[current_state], key = self.q_table[current_state].get)
+          #mover el tractor
+          self.next_step = best_action
+          self.model.grid.move_agent(self,self.next_step)
+          self.number_of_steps += 1
+
+    def get_available_actions(self):
+      #obtener las posiciones vecinas disponibles
+      self.model.grid.get_neighborhood(self.pos,moore = True, include_center=False)
+      neighbors = [pos for pos in neighbors if 0 < pos[0] < self.model.grid.width - 1 and 0 < pos[1] < self.model.grid.height - 1 and pos != (5,3)]
+      open_positions = [pos for pos in neighbors of not any(isintance(agent,(TractorAgent, ObstacleAgent, MaizAgent))) for agent in self.model.grid.get_cell_list_contents(pos)]
+      return open_positions
+
+        # Filter out border cells and obstacle position from the available positions
+        neighbors = [pos for pos in neighbors if
+                     0 < pos[0] < self.model.grid.width - 1 and 0 < pos[1] < self.model.grid.height - 1
+                     and pos != (5, 3)]
+
+        open_positions = [pos for pos in neighbors if not
+                          any(isinstance(agent, (TractorAgent, ObstacleAgent))
+                              for agent in self.model.grid.get_cell_list_contents(pos))]
+
+        if open_positions:
+            self.next_step = open_positions[np.random.randint(len(open_positions))]
+            self.model.grid.move_agent(self, self.next_step)
+            self.number_of_steps += 1
+
+
+
+    def harvest(self):
+        cellmates = self.model.grid.get_cell_list_contents([self.pos])
+        for agent in cellmates:
+            if isinstance(agent, MaizAgent):
+                agent.maiz = 0
+                self.model.grid.remove_agent(agent)
+        
+        def update_q_table(self,reward,new_state):
+          #Se actualiza la tabla utilizando la fórmula de actualización  
+          current_state = self.pos
+          if current_state not in self.q_table:
+            self.q_table[current_state] = {action: 0 for action in self.get_available_actions()}
+            #actualizar el valor q para la acción tomada
+            if new_state not in self.q_table:
+              self.q_table[new_state] = {action: 0 for action in self.get_available_action()}
+              self.q[current_state][self.next_step] += learning_rate*(reward + discount_factor
+                                                                *max(self.q_table[new_state].values())-
+                                                                self.q_table[current_state][self.next_step])
+    def step(self):
+        self.move()
+        self.harvest()
+
+        #obtener la recompensa y el nuevo estado de la acción
+        reward = self.calculate_reward()
+        new_state = self.pos
+        self.update_q_table(reward,new_state) #Actualizar tabla Q
