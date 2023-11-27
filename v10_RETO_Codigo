@@ -284,4 +284,3 @@ anim = animation.FuncAnimation(fig, animate, frames=num_generations)
 anim
 
 
-
