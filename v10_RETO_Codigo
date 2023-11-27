@@ -1,0 +1,24 @@
+
+def animate(i):
+    global prev_lines
+    for line in prev_lines:
+        line.remove()
+
+    patch.set_data(all_grid.iloc[i].iloc[0])
+
+    anim_lines = []
+
+    # Update the contour lines for the full grid
+    for x in range(GRID_SIZE + 3):
+        h_line, = axis.plot([x - 0.5, x - 0.5], [-0.5, GRID_SIZE + 0.5], color='gray', linestyle="-", linewidth=0.5)
+        anim_lines.append(h_line)
+
+    for y in range(GRID_SIZE + 3):
+        v_line, = axis.plot([-0.5, GRID_SIZE + 0.5], [y - 0.5, y - 0.5], color='gray', linestyle="-", linewidth=0.5)
+        anim_lines.append(v_line)
+
+    prev_lines = anim_lines
+
+
+anim = animation.FuncAnimation(fig, animate, frames=num_generations)
+anim
