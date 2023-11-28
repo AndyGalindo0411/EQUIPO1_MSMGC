@@ -1,286 +1,160 @@
-from mesa import Agent, Model
-from mesa.space import MultiGrid
-from mesa.time import RandomActivation
-from mesa.datacollection import DataCollector
-from matplotlib.colors import ListedColormap
-
-import matplotlib
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-
-plt.rcParams["animation.html"] = 'jshtml'
-matplotlib.rcParams['animation.embed_limit'] = 2**128
-
+#import libraries
 import numpy as np
-import pandas as pd
-import time
-import datetime
-import random
-
-
-def get_grid(model):
-    grid = np.full((model.grid.width, model.grid.height), 1)  # Set the entire grid to green initially
-
-    # Color the border cells with light gray
-    grid[0, :] = 0  # Top border
-    grid[-1, :] = 0  # Bottom border
-    grid[:, 0] = 0  # Left border
-    grid[:, -1] = 0  # Right border
-
-    for cell in model.grid.coord_iter():
-        cell_content, cell_pos = cell
-        if cell_content:
-            agent = cell_content[0]
-            if hasattr(agent, 'maiz'):
-                grid[cell_pos[0], cell_pos[1]] = 2  # Color the maiz cells
-            elif hasattr(agent, 'tractor'):
-                grid[cell_pos[0], cell_pos[1]] = 3  # Color the tractor cells
-            elif hasattr(agent, 'obstacle'):
-                grid[cell_pos[0], cell_pos[1]] = 4  # Color the obstacle cells
-
-    return grid
-
-class QLearningAgent(Agent):
-    def __init__(self, unique_id, model, q_table):
-        super().__init__(unique_id, model)
-        self.q_table = q_table
-
-    def step(self):
-        pass
-
-
-class ObstacleAgent(Agent):
-    def __init__(self, unique_id, model):
-        super().__init__(unique_id, model)
-        self.obstacle = 5
-
-    def step(self):
-        pass
-
-class MaizAgent(Agent):
-    def __init__(self, unique_id, model):
-        super().__init__(unique_id, model)
-        self.maiz = 1
-
-    def step(self):
-        pass
-
-
-class TractorAgent(QLearningAgent):
-    def __init__(self, unique_id, model, q_table):
-        super().__init__(unique_id, model, q_table)
-        self.next_step = None
-        self.tractor = 2
-        self.number_of_steps = 0
-
-    def move(self):
-        neighbors = self.model.grid.get_neighborhood(
-            self.pos,
-            moore=True,
-            include_center=False
-        )
-
-        # Filter out border cells and obstacle positions from the available positions
-        neighbors = [pos for pos in neighbors if
-                      0 < pos[0] < self.model.grid.width - 1 and 0 < pos[1] < self.model.grid.height - 1
-                      and pos not in self.model.obstacle_positions]
-
-        open_positions = [pos for pos in neighbors if not
-                          any(isinstance(agent, (TractorAgent, ObstacleAgent))
-                              for agent in self.model.grid.get_cell_list_contents(pos))]
-
-        if open_positions:
-            self.next_step = random.choice(open_positions)  # Choose a random open position
-            self.model.grid.move_agent(self, self.next_step)
-            self.number_of_steps += 1
-
-            # Update Q-value for the current state-action pair
-            current_state = self.pos
-            next_state = self.next_step
-            action = 'move'
-
-            current_q_value = self.q_table.get((current_state, action), 0)
-            next_q_value = max(self.q_table.get((next_state, a), 0) for a in ['move', 'harvest'])
-
-            reward = 0
-            if 'maiz' in [type(agent).__name__.lower() for agent in
-                          self.model.grid.get_cell_list_contents([self.next_step])]:
-                reward = 0
-            elif 'obstacle' in [type(agent).__name__.lower() for agent in
-                                self.model.grid.get_cell_list_contents([self.next_step])]:
-                reward = -100
-
-            new_q_value = current_q_value + self.model.learning_rate * (
-                        reward + self.model.discount_factor * next_q_value - current_q_value)
-            self.q_table[(current_state, action)] = new_q_value
-
-    def harvest(self):
-        cellmates = self.model.grid.get_cell_list_contents([self.pos])
-        for agent in cellmates:
-            if isinstance(agent, MaizAgent):
-                agent.maiz = 0
-                self.model.grid.remove_agent(agent)
-
-                # Update Q-value for the current state-action pair
-                current_state = self.pos
-                action = 'harvest'
-
-                current_q_value = self.q_table.get((current_state, action), 0)
-
-                reward = 0  # No reward for harvesting
-                new_q_value = current_q_value + self.model.learning_rate * (reward - current_q_value)
-                self.q_table[(current_state, action)] = new_q_value
-
-    def step(self):
-        self.move()
-        self.harvest()
-
-
-class QLearningModel(Model):
-    def __init__(self, T, M, O, width, height, learning_rate, discount_factor):
-        self.num_tractors = T
-        self.num_maiz = M
-        self.num_obstacles = O  # Added number of obstacles
-        self.obstacle_positions = [(6, 3), (2, 3), (4, 6), (7, 4), (8, 8)]  # Specify obstacle positions
-        self.learning_rate = learning_rate
-        self.discount_factor = discount_factor
-        self.setup_model(width, height)
-
-    def setup_model(self, width, height):
-        # Clear the scheduler and reset the grid
-        self.schedule = RandomActivation(self)
-        self.grid = MultiGrid(width + 2, height + 2, False)
-
-        maiz_coordinates = [(i + 1, j + 1) for i in range(width) for j in range(height)]
-
-        # Place maiz agents excluding positions where obstacles are located
-        maiz_coordinates = [coord for coord in maiz_coordinates if coord not in self.obstacle_positions]
-
-        for i, coords in enumerate(maiz_coordinates):
-            m = MaizAgent(i, self)
-            self.schedule.add(m)
-            self.grid.place_agent(m, coords)
-
-        # Place obstacles at specified positions
-        for i, pos in enumerate(self.obstacle_positions):
-            o = ObstacleAgent(i + self.num_maiz, self)
-            self.schedule.add(o)
-            self.grid.place_agent(o, pos)
-
-        start = self.num_maiz + self.num_obstacles + 1
-        finish = self.num_tractors + start
-
-        q_table = {}
-        for i in range(start, finish):
-            if i % 2 == 0:
-                t = TractorAgent(i, self, q_table)
-                self.schedule.add(t)
-                self.grid.place_agent(t, (0, 0))
-            else:
-                t = TractorAgent(i, self, q_table)
-                self.schedule.add(t)
-                self.grid.place_agent(t, (width + 1, height + 1))
-
-        self.datacollector = DataCollector(model_reporters={'Grid': get_grid})
-
-    def maiz_counter(self):
-        maiz_left = 0
-        for cell in self.grid.coord_iter():
-            cell_content, cell_pos = cell
-            if len(cell_content) != 0:
-                if hasattr(cell_content[0], 'maiz'):
-                    agent = cell_content[0]
-                    if agent.maiz == 1:
-                        maiz_left += 1
-        return maiz_left
 
-    def step(self):
-        self.datacollector.collect(self)
-        self.schedule.step()
-        self.maiz_left_total = self.maiz_counter()
-
-
-GRID_SIZE = 10
-num_tractors = 2
-num_obstacles = 5  # Update the number of obstacles to match the specified positions
-num_maiz = 100 - num_obstacles
-num_generations = 200
-learning_rate = 0.1
-discount_factor = 0.9
-
-start_time = time.time()
-model = QLearningModel(num_tractors, num_maiz, num_obstacles, GRID_SIZE, GRID_SIZE, learning_rate, discount_factor)
-for i in range(num_generations):
-    model.step()
-    if i == (num_generations - 1):
-        for cell in model.grid.coord_iter():
-            cell_content, cell_pos = cell
-            if len(cell_content) != 0:
-                if hasattr(cell_content[0], 'quantity_of_steps'):
-                    agent = cell_content[0]
-                    num_steps += agent.quantity_of_steps
-
-print(f"total number of steps: {num_steps - num_tractors}")
-print(f"Execution time: ", str(datetime.timedelta(seconds=(time.time() - start_time))))
-
-all_grid = model.datacollector.get_model_vars_dataframe()
-final_maiz_left = model.maiz_left_total
-
-print(f"total maiz left: {final_maiz_left}")
-
-fig, axis = plt.subplots(figsize=(5, 5))
-axis.set_xticks([])
-axis.set_yticks([])
-
-colors = [
-    (0.8, 0.8, 0.8),  # Azul (color del agente Tractor)
-    (1, 1, 1),  # Green (empty cell inside the border)
-    (0, 1, 0),  # Rojo (color del agente Maiz)
-
-    (0, 0.6, 0),  # Light gray (color for border cells)
-
-    (0, 0, 0),  # Negro (color del agente Obstacle)
-]
-
-cmap_custom = ListedColormap(colors)
-patch = axis.imshow(all_grid.iloc[0].iloc[0], cmap=cmap_custom)
-plt.show()
-
-prev_lines = []
-
-# Create the initial contour lines for the full grid
-for x in range(GRID_SIZE):
-    h_line, = axis.plot([x - 0.5, x - 0.5], [-0.5, GRID_SIZE + 0.5], color='gray', linestyle="-", linewidth=0.5)
-    prev_lines.append(h_line)
-
-for y in range(GRID_SIZE):
-    v_line, = axis.plot([-0.5, GRID_SIZE + 0.5], [y - 0.5, y - 0.5], color='gray', linestyle="-", linewidth=0.5)
-    prev_lines.append(v_line)
-
-
-
-def animate(i):
-    global prev_lines
-    for line in prev_lines:
-        line.remove()
-
-    patch.set_data(all_grid.iloc[i].iloc[0])
-
-    anim_lines = []
-
-    # Update the contour lines for the full grid
-    for x in range(GRID_SIZE + 3):
-        h_line, = axis.plot([x - 0.5, x - 0.5], [-0.5, GRID_SIZE + 0.5], color='gray', linestyle="-", linewidth=0.5)
-        anim_lines.append(h_line)
-
-    for y in range(GRID_SIZE + 3):
-        v_line, = axis.plot([-0.5, GRID_SIZE + 0.5], [y - 0.5, y - 0.5], color='gray', linestyle="-", linewidth=0.5)
-        anim_lines.append(v_line)
-
-    prev_lines = anim_lines
-
-
-anim = animation.FuncAnimation(fig, animate, frames=num_generations)
-anim
-
-
+#define the shape of the environment (i.e., its states)
+environment_rows = 12
+environment_columns = 12
+
+#Create a 3D numpy array to hold the current Q-values for each state and action pair: Q(s, a)
+#The array contains 11 rows and 11 columns (to match the shape of the environment), as well as a third "action" dimension.
+#The "action" dimension consists of 4 layers that will allow us to keep track of the Q-values for each possible action in
+#each state (see next cell for a description of possible actions).
+#The value of each (state, action) pair is initialized to 0.
+q_values = np.zeros((environment_rows, environment_columns, 2))
+
+#define actions
+#numeric action codes: 0 = up, 1 = right, 2 = down, 3 = left
+actions = ['up', 'right', 'down', 'left']
+
+#Create a 2D numpy array to hold the rewards for each state.
+#The array contains 11 rows and 11 columns (to match the shape of the environment), and each value is initialized to -100.
+rewards = np.full((environment_rows, environment_columns), -1.)
+rewards[11, 11] = 100.  # Establecer la recompensa para el área de empaque (es decir, la meta) a 100
+#rewards[0,0] = 100.
+
+#define aisle locations (i.e., white squares) for rows 1 through 9
+aisles = {}  # store locations in a dictionary
+aisles[1] = [i for i in range(1, 12)]
+aisles[2] = [1, 2, 3, 4, 5, 7, 9, 10, 11]
+aisles[3] = [i for i in range(1, 12)]
+aisles[3].append(11)
+aisles[4] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+aisles[5] = [i for i in range(12)]
+aisles[6] = [11]
+aisles[7] = [i for i in range(1, 12)]
+aisles[8] = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11]
+aisles[9] = [i for i in range(12)]
+aisles[10] = [11]
+aisles[11] = [i for i in range(1, 12)]
+aisles[12] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+# set the rewards for all aisle locations (i.e., white squares) to -1, except the packaging area
+for row_index in range(1, 11):
+    for column_index in aisles[row_index]:
+        rewards[row_index, column_index] = -1.
+
+# Restar 100 a las coordenadas especificadas
+coordinates_to_subtract_100 = [(9, 9), (5, 7), (8, 5), (3, 4), (7, 4)]
+
+for coord in coordinates_to_subtract_100:
+    row_index, column_index = coord
+    rewards[row_index, column_index] = -100
+
+# Display rewards matrix
+for row in rewards:
+    print(row)
+
+#define a function that determines if the specified location is a terminal state
+def is_terminal_state(current_row_index, current_column_index):
+    # Si la recompensa para esta ubicación es -1, entonces no es un estado terminal (es decir, es un cuadro blanco)
+    if rewards[current_row_index, current_column_index] == -1.:
+        return False
+    else:
+        return True
+
+
+#define a function that will choose a random, non-terminal starting location
+def get_starting_location():
+  #get a random row and column index
+  current_row_index = np.random.randint(environment_rows)
+  current_column_index = np.random.randint(environment_columns)
+  #continue choosing random row and column indexes until a non-terminal state is identified
+  #(i.e., until the chosen state is a 'white square').
+  while is_terminal_state(current_row_index, current_column_index):
+    current_row_index = np.random.randint(environment_rows)
+    current_column_index = np.random.randint(environment_columns)
+  return current_row_index, current_column_index
+
+#define an epsilon greedy algorithm that will choose which action to take next (i.e., where to move next)
+def get_next_action(current_row_index, current_column_index, epsilon):
+  #if a randomly chosen value between 0 and 1 is less than epsilon,
+  #then choose the most promising value from the Q-table for this state.
+  if np.random.random() < epsilon:
+    return np.argmax(q_values[current_row_index, current_column_index])
+  else: #choose a random action
+    return np.random.randint(2)
+  return action_index
+
+#define a function that will get the next location based on the chosen action
+def get_next_location(current_row_index, current_column_index, action_index):
+  new_row_index = current_row_index
+  new_column_index = current_column_index
+  if actions[action_index] == 'up' and current_row_index > 0:
+    new_row_index -= 1
+  elif actions[action_index] == 'right' and current_column_index < environment_columns - 1:
+    new_column_index += 1
+  elif actions[action_index] == 'down' and current_row_index < environment_rows - 1:
+    new_row_index += 1
+  elif actions[action_index] == 'left' and current_column_index > 0:
+    new_column_index -= 1
+  return new_row_index, new_column_index
+
+#Define a function that will get the shortest path between any location within the warehouse that
+#the robot is allowed to travel and the item packaging location.
+def get_shortest_path(start_row_index, start_column_index):
+  #return immediately if this is an invalid starting location
+  if is_terminal_state(start_row_index, start_column_index):
+    return []
+  else: #if this is a 'legal' starting location
+    current_row_index, current_column_index = start_row_index, start_column_index
+    shortest_path = []
+    shortest_path.append([current_row_index, current_column_index])
+    #continue moving along the path until we reach the goal (i.e., the item packaging location)
+    while not is_terminal_state(current_row_index, current_column_index):
+      #get the best action to take
+      action_index = get_next_action(current_row_index, current_column_index, 1.)
+      #move to the next location on the path, and add the new location to the list
+      current_row_index, current_column_index = get_next_location(current_row_index, current_column_index, action_index)
+      shortest_path.append([current_row_index, current_column_index])
+    return shortest_path
+
+#display a few shortest paths
+#print(get_shortest_path(0, 0)) #starting at row 3, column 9
+print(get_shortest_path(11, 11)) #starting at row 5, column 0
+#print(get_shortest_path(9, 5)) #starting at row 9, column 5
+
+#define training parameters
+epsilon = 0.9 #the percentage of time when we should take the best action (instead of a random action)
+discount_factor = 0.9 #discount factor for future rewards
+learning_rate = 0.9 #the rate at which the AI agent should learn
+
+#run through 1000 training episodes
+for episode in range(100):
+  #get the starting location for this episode
+  row_index, column_index = get_starting_location()
+
+  #continue taking actions (i.e., moving) until we reach a terminal state
+  #(i.e., until we reach the item packaging area or crash into an item storage location)
+  while not is_terminal_state(row_index, column_index):
+    #choose which action to take (i.e., where to move next)
+    action_index = get_next_action(row_index, column_index, epsilon)
+
+    #perform the chosen action, and transition to the next state (i.e., move to the next location)
+    old_row_index, old_column_index = row_index, column_index #store the old row and column indexes
+    row_index, column_index = get_next_location(row_index, column_index, action_index)
+
+    #receive the reward for moving to the new state, and calculate the temporal difference
+    reward = rewards[row_index, column_index]
+    old_q_value = q_values[old_row_index, old_column_index, action_index]
+    temporal_difference = reward + (discount_factor * np.max(q_values[row_index, column_index])) - old_q_value
+
+    #update the Q-value for the previous state and action pair
+    new_q_value = old_q_value + (learning_rate * temporal_difference)
+    q_values[old_row_index, old_column_index, action_index] = new_q_value
+
+print('Training complete!')
+
+#display an example of reversed shortest path
+path = get_shortest_path(5, 2) #go to row 5, column 2
+path.reverse()
+print(path)
