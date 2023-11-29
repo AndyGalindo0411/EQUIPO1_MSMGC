@@ -1,0 +1,2109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3120237909566610317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7342007917394896278}
+  m_Layer: 0
+  m_Name: Environment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7342007917394896278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3120237909566610317}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.196785, y: 8.62788, z: -3.533266}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2624439077250706988}
+  - {fileID: 6211959706572073171}
+  - {fileID: 3375948164031485319}
+  - {fileID: 393532179954145568}
+  - {fileID: 2437452035212472383}
+  - {fileID: 1079268753939686830}
+  - {fileID: 1883916121712481084}
+  - {fileID: 7585500101160185468}
+  - {fileID: 5718346501945906521}
+  - {fileID: 7995654929192480752}
+  - {fileID: 828393297815433186}
+  - {fileID: 7356870070302770962}
+  - {fileID: 5497022765146705353}
+  - {fileID: 3901164269910867241}
+  - {fileID: 8104885525657006999}
+  - {fileID: 482633966626829150}
+  - {fileID: 4267700102598416413}
+  - {fileID: 6640739610370727544}
+  - {fileID: 2746429419074814414}
+  - {fileID: 9061000920667001372}
+  - {fileID: 5599961530183189961}
+  - {fileID: 464833291513562755}
+  - {fileID: 130056341978196669}
+  - {fileID: 5609131925448848088}
+  - {fileID: 8897604613953251787}
+  - {fileID: 5670210339762462869}
+  - {fileID: 2394194263122925166}
+  - {fileID: 1969837360012565642}
+  - {fileID: 148972302849060325}
+  - {fileID: 102536457513264646}
+  - {fileID: 7964789792497464161}
+  - {fileID: 1710632519711243531}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &102536457513461282
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 103474, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Edge 4 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.446785
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+--- !u!4 &102536457513264646 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+  m_PrefabInstance: {fileID: 102536457513461282}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &130056341978000025
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 103474, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Edge 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.446785
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.583266
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+--- !u!4 &130056341978196669 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+  m_PrefabInstance: {fileID: 130056341978000025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &148972302849432203
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 112164, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Edge 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36.196785
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+--- !u!4 &148972302849060325 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+  m_PrefabInstance: {fileID: 148972302849432203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &393532179954342148
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 103474, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Edge 4 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.196785
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.583266
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+--- !u!4 &393532179954145568 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+  m_PrefabInstance: {fileID: 393532179954342148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &464833291513919971
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 105158, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6154294
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -57.106785
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.36788
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+--- !u!4 &464833291513562755 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+  m_PrefabInstance: {fileID: 464833291513919971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &482633966626733604
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 161484, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.606785
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+--- !u!4 &482633966626829150 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+  m_PrefabInstance: {fileID: 482633966626733604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &828393297815537884
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 190354, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3514888
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.696785
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.073266
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+--- !u!4 &828393297815433186 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+  m_PrefabInstance: {fileID: 828393297815537884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1079268753940048084
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 161484, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.606785
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.073266
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+--- !u!4 &1079268753939686830 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+  m_PrefabInstance: {fileID: 1079268753940048084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1710632519710817045
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Corner 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.396785
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+--- !u!4 &1710632519711243531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+  m_PrefabInstance: {fileID: 1710632519710817045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1883916121712274524
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 105158, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6154294
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.856785
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.36788
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.193266
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+--- !u!4 &1883916121712481084 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+  m_PrefabInstance: {fileID: 1883916121712274524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1969837360012163322
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 192304, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Corner 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.636784
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+--- !u!4 &1969837360012565642 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+  m_PrefabInstance: {fileID: 1969837360012163322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2394194263123383882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 103474, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Edge 4 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.196785
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+--- !u!4 &2394194263122925166 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+  m_PrefabInstance: {fileID: 2394194263123383882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2437452035212350543
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 192304, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Corner 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.636784
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.583266
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+--- !u!4 &2437452035212472383 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 451696, guid: f78f74ffdc7f6c84bbc45b41161fb58f, type: 3}
+  m_PrefabInstance: {fileID: 2437452035212350543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2624439077250278230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 161484, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36.196785
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.073266
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+--- !u!4 &2624439077250706988 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+  m_PrefabInstance: {fileID: 2624439077250278230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2746429419074971376
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 190354, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.696785
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+--- !u!4 &2746429419074814414 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+  m_PrefabInstance: {fileID: 2746429419074971376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3375948164031603433
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 112164, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Edge 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.196785
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.583266
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+--- !u!4 &3375948164031485319 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+  m_PrefabInstance: {fileID: 3375948164031603433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3901164269910962259
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 161484, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36.196785
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+--- !u!4 &3901164269910867241 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+  m_PrefabInstance: {fileID: 3901164269910962259}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4267700102598076285
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 105158, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6154294
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.856785
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.36788
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+--- !u!4 &4267700102598416413 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+  m_PrefabInstance: {fileID: 4267700102598076285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5497022765146403497
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 105158, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6154294
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -57.106785
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.36788
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.073266
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+--- !u!4 &5497022765146705353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 491360, guid: baf7bb04094c1fe4d994d728999eae1b, type: 3}
+  m_PrefabInstance: {fileID: 5497022765146403497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5599961530183082743
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 190354, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3514888
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.096785
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+--- !u!4 &5599961530183189961 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+  m_PrefabInstance: {fileID: 5599961530183082743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5609131925448520444
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 103474, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Edge 4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.696785
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.583266
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+--- !u!4 &5609131925448848088 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+  m_PrefabInstance: {fileID: 5609131925448520444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5670210339762804731
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 112164, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Edge 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.196785
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+--- !u!4 &5670210339762462869 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+  m_PrefabInstance: {fileID: 5670210339762804731}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5718346501945808931
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 161484, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -53.416786
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.073266
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+--- !u!4 &5718346501945906521 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+  m_PrefabInstance: {fileID: 5718346501945808931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6211959706571908521
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 161484, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.196785
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.073266
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+--- !u!4 &6211959706572073171 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+  m_PrefabInstance: {fileID: 6211959706571908521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6640739610370888450
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 161484, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -53.416786
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+--- !u!4 &6640739610370727544 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+  m_PrefabInstance: {fileID: 6640739610370888450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7356870070303186988
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 190354, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3514888
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.096785
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.073266
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+--- !u!4 &7356870070302770962 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+  m_PrefabInstance: {fileID: 7356870070303186988}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7585500101159770386
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 112164, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Edge 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36.196785
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.583266
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+--- !u!4 &7585500101160185468 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 456558, guid: 3851756c71fc60741a0f9a8b4cf1a908, type: 3}
+  m_PrefabInstance: {fileID: 7585500101159770386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7964789792497005381
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 103474, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Edge 4 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.696785
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+--- !u!4 &7964789792497464161 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 458788, guid: 4d2cdf2836f78914f85386a10cd7db79, type: 3}
+  m_PrefabInstance: {fileID: 7964789792497005381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7995654929192061134
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 190354, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.696785
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.073266
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+--- !u!4 &7995654929192480752 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+  m_PrefabInstance: {fileID: 7995654929192061134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8104885525656846061
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 161484, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.196785
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+--- !u!4 &8104885525657006999 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 429434, guid: aa844cbc7cd603f45b3a56fed001aee3, type: 3}
+  m_PrefabInstance: {fileID: 8104885525656846061}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8897604613952892885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 127354, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Corner 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.396785
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.583266
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+--- !u!4 &8897604613953251787 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 427550, guid: 66ec34d11111716468cb9de6c840b423, type: 3}
+  m_PrefabInstance: {fileID: 8897604613952892885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9061000920667419938
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7342007917394896278}
+    m_Modifications:
+    - target: {fileID: 190354, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_Name
+      value: Parkinglot Center 2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3514888
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.696785
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.62788
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+--- !u!4 &9061000920667001372 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 419646, guid: 5687d55acdf3c094aa163098fed8dbbc, type: 3}
+  m_PrefabInstance: {fileID: 9061000920667419938}
+  m_PrefabAsset: {fileID: 0}
