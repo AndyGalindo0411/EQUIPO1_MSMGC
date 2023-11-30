@@ -1,0 +1,163 @@
+#import libraries
+import numpy as np
+
+#define the shape of the environment (i.e., its states)
+environment_rows = 12
+environment_columns = 12
+num_agents = 2
+
+#define actions
+#numeric action codes: 0 = up, 1 = right, 2 = down, 3 = left 4 = stop
+# Define la función get_agent_actions para retornar las acciones específicas del agente
+def get_agent_actions(agent_id):
+    if agent_id == 1:
+        return ['up', 'right', 'down', 'left', 'stop']
+    elif agent_id == 2:
+        return ['up', 'right', 'down', 'left']
+    else:
+        return []
+
+# Obtén la lista de acciones para el primer agente
+agent_1_actions = get_agent_actions(1)
+
+# Obtén la lista de acciones para el segundo agente
+agent_2_actions = get_agent_actions(2)
+
+# Crea el array q_values utilizando las longitudes de las listas de acciones de ambos agentes
+q_values = np.zeros((environment_rows, environment_columns, len(agent_1_actions), len(agent_2_actions)))
+
+rewards = np.full((environment_rows, environment_columns), -1.)
+
+# Establecer la recompensa para las dos ubicaciones deseadas a 100
+rewards[11, 11] = 100.  # Coordenada 1,1
+rewards[0, 0] = 100.
+# Restar 100 a las coordenadas especificadas
+coordinates_to_subtract_100 = [(9, 9), (5, 7), (8, 5), (3, 4), (7, 4)]
+coordinates_to_subtract_1 = [(5,6), (6,6)]
+
+for coord in coordinates_to_subtract_100:
+    row_index, column_index = coord
+    rewards[row_index, column_index] = -100
+
+for coord_1 in coordinates_to_subtract_1:
+  row_index, column_index = coord_1
+  rewards[row_index, column_index] = 1
+
+# Display rewards matrix
+for row in rewards:
+    print(row)
+
+#define a function that determines if the specified location is a terminal state
+def is_terminal_state(current_row_index, current_column_index):
+    # Si la recompensa para esta ubicación es -1, entonces no es un estado terminal (es decir, es un cuadro blanco)
+    if rewards[current_row_index, current_column_index] == -1.:
+        return False
+    else:
+        return True
+
+
+#define a function that will choose a random, non-terminal starting location
+def get_starting_location():
+  #get a random row and column index
+  current_row_index = np.random.randint(environment_rows)
+  current_column_index = np.random.randint(environment_columns)
+  #continue choosing random row and column indexes until a non-terminal state is identified
+  #(i.e., until the chosen state is a 'white square').
+  while is_terminal_state(current_row_index, current_column_index):
+    current_row_index = np.random.randint(environment_rows)
+    current_column_index = np.random.randint(environment_columns)
+  return current_row_index, current_column_index
+
+#define an epsilon greedy algorithm that will choose which action to take next (i.e., where to move next)
+def get_next_action(current_row_index, current_column_index, epsilon, agent_id):
+    # Obtener las acciones disponibles para el agente específico
+    agent_actions = get_agent_actions(agent_id)
+
+    # Si un valor aleatorio entre 0 y 1 es menor que epsilon, elegir la acción más prometedora según la tabla Q
+    if np.random.random() < epsilon:
+        return np.argmax(q_values[current_row_index, current_column_index, agent_actions])
+    else:  # Elegir una acción aleatoria
+        return np.random.choice(agent_actions)
+
+
+def get_next_location(current_row_index, current_column_index, action_index, agent_id):
+    new_row_index = current_row_index
+    new_column_index = current_column_index
+
+    # Obtener las acciones disponibles para el agente específico
+    agent_actions = get_agent_actions(agent_id)
+
+    # Moverse a la nueva ubicación según la acción elegida
+    if agent_actions[action_index] == 'up' and current_row_index > 0:
+        new_row_index -= 1
+    elif agent_actions[action_index] == 'right' and current_column_index < environment_columns - 1:
+        new_column_index += 1
+    elif agent_actions[action_index] == 'down' and current_row_index < environment_rows - 1:
+        new_row_index += 1
+    elif agent_actions[action_index] == 'left' and current_column_index > 0:
+        new_column_index -= 1
+
+    return new_row_index, new_column_index
+
+
+def move_until_obstacle_or_stop(start_row_index, start_column_index, agent_id):
+    current_row_index, current_column_index = start_row_index, start_column_index
+    path = []
+    path.append([current_row_index, current_column_index])
+
+    while rewards[current_row_index, current_column_index] != 1:
+        action_index = get_next_action(current_row_index, current_column_index, 1., agent_id)
+        next_row_index, next_column_index = get_next_location(current_row_index, current_column_index, action_index, agent_id)
+
+        # Verifica si la próxima ubicación es un obstáculo (-100)
+        if rewards[next_row_index, next_column_index] == -100:
+            current_row_index, current_column_index = next_row_index, next_column_index
+            path.append([current_row_index, current_column_index])
+        # Verifica si la próxima ubicación es un obstáculo (1)
+        elif rewards[next_row_index, next_column_index] == 1:
+            path.append([next_row_index, next_column_index])
+            break
+        # Si la próxima ubicación es un camino libre (-1)
+        else:
+            current_row_index, current_column_index = next_row_index, next_column_index
+            path.append([current_row_index, current_column_index])
+
+    return path
+
+epsilon = 0.9 #the percentage of time when we should take the best action (instead of a random action)
+discount_factor = 0.9 #discount factor for future rewards
+learning_rate = 0.9 #the rate at which the AI agent should learn
+
+#run through 1000 training episodes
+for episode in range(100):
+  #get the starting location for this episode
+  row_index, column_index = get_starting_location()
+
+  #continue taking actions (i.e., moving) until we reach a terminal state
+  #(i.e., until we reach the item packaging area or crash into an item storage location)
+  while not is_terminal_state(row_index, column_index):
+    #choose which action to take (i.e., where to move next)
+    action_index = get_next_action(row_index, column_index, epsilon)
+
+    #perform the chosen action, and transition to the next state (i.e., move to the next location)
+    old_row_index, old_column_index = row_index, column_index #store the old row and column indexes
+    row_index, column_index = get_next_location(row_index, column_index, action_index)
+
+    #receive the reward for moving to the new state, and calculate the temporal difference
+    reward = rewards[row_index, column_index]
+    old_q_value = q_values[old_row_index, old_column_index, action_index]
+    temporal_difference = reward + (discount_factor * np.max(q_values[row_index, column_index])) - old_q_value
+
+    #update the Q-value for the previous state and action pair
+    new_q_value = old_q_value + (learning_rate * temporal_difference)
+    q_values[old_row_index, old_column_index, action_index] = new_q_value
+
+def imprimir_matriz_despues_entrenamiento(q_values):
+    for row in q_values:
+        for col in row:
+            print(col, end="\t")
+        print("\n")
+
+print('Training complete!')
+
+imprimir_matriz_despues_entrenamiento(q_values)
