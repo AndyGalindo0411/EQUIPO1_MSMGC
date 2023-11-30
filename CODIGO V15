@@ -19,7 +19,6 @@ import time
 import datetime
 import random
 
-
 def get_grid(model):
     grid = np.full((model.grid.width, model.grid.height), 1)  # Set the entire grid to green initially
 
@@ -74,7 +73,6 @@ class QLearningAgent(Agent):
             new_q_value = old_q_value + (self.model.learning_rate * temporal_difference)
             self.q_table[current_row_index, current_column_index, action_index] = new_q_value
 
-
 class ObstacleAgent(Agent):
     def __init__(self, unique_id, model):
         super().__init__(unique_id, model)
@@ -90,7 +88,6 @@ class MaizAgent(Agent):
 
     def step(self):
         pass
-
 
 class TractorAgent(Agent):
     def __init__(self, unique_id, model, q_table):
@@ -203,14 +200,12 @@ class RecolectorAgent(Agent):
             new_q_value = current_q_value + self.model.learning_rate * (
                     reward + self.model.discount_factor * next_q_value - current_q_value)
             self.q_table[(current_state, action)] = new_q_value
-
     def custom_action(self):
         pass
 
     def step(self):
         self.move()
         self.custom_action()
-
 
 class QLearningModel(Model):
     def __init__(self, T, M, O, width, height, learning_rate, discount_factor):
@@ -221,6 +216,8 @@ class QLearningModel(Model):
         self.learning_rate = learning_rate
         self.discount_factor = discount_factor
         self.setup_model(width, height)
+        self.maiz_left_total = self.maiz_counter()  # Initialize maize left
+
 
 
     def setup_model(self, width, height):
@@ -273,26 +270,29 @@ class QLearningModel(Model):
                         maiz_left += 1
         return maiz_left
 
+    def train_q_learning(self):
+        for agent in self.schedule.agents:
+          if isinstance(agent, QLearningAgent):
+            agent.step()
+
+
     def step(self):
         self.datacollector.collect(self)
         self.schedule.step()
         self.maiz_left_total = self.maiz_counter()
-        self.train_q_learning()  # Llama a train_q_learning después de cada paso del modelo
+        self.train_q_learning()  # Call train_q_learning after each model step
 
-    def train_q_learning(self):
-        for agent in self.schedule.agents:
-            if isinstance(agent, QLearningAgent):
-                agent.step()
 
 
 GRID_SIZE = 10
 num_tractors = 2
 num_obstacles = 5  # Update the number of obstacles to match the specified positions
 num_maiz = 100 - num_obstacles
-num_generations = 200
+num_generations = 250
 learning_rate = 0.1
 discount_factor = 0.9
 num_steps = 0
+
 
 start_time = time.time()
 model = QLearningModel(num_tractors, num_maiz, num_obstacles, GRID_SIZE, GRID_SIZE, learning_rate, discount_factor)
@@ -314,6 +314,10 @@ final_maiz_left = model.maiz_left_total
 
 print(f"total maiz left: {final_maiz_left}")
 
+if not final_maiz_left == 0:
+  for i in range(num_generations):
+    model.step()
+
 fig, axis = plt.subplots(figsize=(5, 5))
 axis.set_xticks([])
 axis.set_yticks([])
@@ -334,6 +338,8 @@ plt.show()
 
 prev_lines = []
 
+
+
 # Create the initial contour lines for the full grid
 for x in range(GRID_SIZE):
     h_line, = axis.plot([x - 0.5, x - 0.5], [-0.5, GRID_SIZE + 0.5], color='gray', linestyle="-", linewidth=0.5)
@@ -342,8 +348,6 @@ for x in range(GRID_SIZE):
 for y in range(GRID_SIZE):
     v_line, = axis.plot([-0.5, GRID_SIZE + 0.5], [y - 0.5, y - 0.5], color='gray', linestyle="-", linewidth=0.5)
     prev_lines.append(v_line)
-
-# ...
 
 def animate(i):
     global prev_lines
@@ -373,4 +377,7 @@ def animate(i):
         #imprimir_matriz_despues_entrenamiento(q_values)
 anim = animation.FuncAnimation(fig, animate, frames=num_generations)
 anim
+
+
+
 
