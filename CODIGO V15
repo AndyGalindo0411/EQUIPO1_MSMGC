@@ -1,0 +1,376 @@
+!pip install mesa
+
+from mesa import Agent, Model
+from mesa.space import MultiGrid
+from mesa.time import RandomActivation
+from mesa.datacollection import DataCollector
+from matplotlib.colors import ListedColormap
+
+import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+plt.rcParams["animation.html"] = 'jshtml'
+matplotlib.rcParams['animation.embed_limit'] = 2**128
+
+import numpy as np
+import pandas as pd
+import time
+import datetime
+import random
+
+
+def get_grid(model):
+    grid = np.full((model.grid.width, model.grid.height), 1)  # Set the entire grid to green initially
+
+    # Color the border cells with light gray
+    grid[0, :] = 0  # Top border
+    grid[-1, :] = 0  # Bottom border
+    grid[:, 0] = 0  # Left border
+    grid[:, -1] = 0  # Right border
+
+    for cell in model.grid.coord_iter():
+        cell_content, cell_pos = cell
+        if cell_content:
+            agent = cell_content[0]
+            if hasattr(agent, 'maiz'):
+                grid[cell_pos[0], cell_pos[1]] = 2  # Color the maiz cells
+            elif hasattr(agent, 'tractor'):
+                grid[cell_pos[0], cell_pos[1]] = 3  # Color the tractor cells
+            elif hasattr(agent, 'obstacle'):
+                grid[cell_pos[0], cell_pos[1]] = 4  # Color the obstacle cells
+
+    return grid
+
+class QLearningAgent(Agent):
+    def __init__(self, unique_id, model, q_table):
+        super().__init__(unique_id, model)
+        self.q_table = q_table
+
+    def step(self):
+        # Código actual del bucle de entrenamiento del modelo Q-learning
+        current_row_index, current_column_index = self.model.get_starting_location()
+
+        while not self.model.is_terminal_state(current_row_index, current_column_index):
+            action_index = self.model.get_next_action(current_row_index, current_column_index, 1., self.unique_id)
+            next_row_index, next_column_index = self.model.get_next_location(current_row_index, current_column_index, action_index, self.unique_id)
+
+            # Verifica si la próxima ubicación es un obstáculo (-100)
+            if self.model.rewards[next_row_index, next_column_index] == -100:
+                current_row_index, current_column_index = next_row_index, next_column_index
+            # Verifica si la próxima ubicación es un obstáculo (1)
+            elif self.model.rewards[next_row_index, next_column_index] == 1:
+                break
+            # Si la próxima ubicación es un camino libre (-1)
+            else:
+                current_row_index, current_column_index = next_row_index, next_column_index
+
+            # Realiza las actualizaciones Q-learning según la lógica actual de tu bucle de entrenamiento
+            reward = self.model.rewards[next_row_index, next_column_index]
+            old_q_value = self.q_table[current_row_index, current_column_index, action_index]
+            temporal_difference = reward + (self.model.discount_factor * np.max(self.q_table[next_row_index, next_column_index])) - old_q_value
+
+            # Actualiza el Q-value para el par estado-acción actual
+            new_q_value = old_q_value + (self.model.learning_rate * temporal_difference)
+            self.q_table[current_row_index, current_column_index, action_index] = new_q_value
+
+
+class ObstacleAgent(Agent):
+    def __init__(self, unique_id, model):
+        super().__init__(unique_id, model)
+        self.obstacle = 5
+
+    def step(self):
+        pass
+
+class MaizAgent(Agent):
+    def __init__(self, unique_id, model):
+        super().__init__(unique_id, model)
+        self.maiz = 1
+
+    def step(self):
+        pass
+
+
+class TractorAgent(Agent):
+    def __init__(self, unique_id, model, q_table):
+        super().__init__(unique_id, model)
+        self.next_step = None
+        self.tractor = 2
+        self.number_of_steps = 0
+        self.q_table = q_table
+
+    def move(self):
+        neighbors = self.model.grid.get_neighborhood(
+            self.pos,
+            moore=True,
+            include_center=False
+        )
+
+        # Filtra las celdas de borde y las posiciones de obstáculos de las posiciones disponibles
+        neighbors = [pos for pos in neighbors if
+                      0 < pos[0] < self.model.grid.width - 1 and 0 < pos[1] < self.model.grid.height - 1
+                      and pos not in self.model.obstacle_positions]
+
+        open_positions = [pos for pos in neighbors if not
+                          any(isinstance(agent, (TractorAgent, ObstacleAgent))
+                              for agent in self.model.grid.get_cell_list_contents(pos))]
+
+        if open_positions:
+            self.next_step = random.choice(open_positions)  # Elegir una posición abierta al azar
+            self.model.grid.move_agent(self, self.next_step)
+            self.number_of_steps += 1
+
+            # Actualizar el valor Q para el par estado-acción actual
+            current_state = self.pos
+            next_state = self.next_step
+            action = 'move'
+
+            current_q_value = self.q_table.get((current_state, action), 0)
+            next_q_value = max(self.q_table.get((next_state, a), 0) for a in ['move', 'harvest'])
+
+            reward = 0
+            if 'maiz' in [type(agent).__name__.lower() for agent in
+                          self.model.grid.get_cell_list_contents([self.next_step])]:
+                reward = 0
+            elif 'obstacle' in [type(agent).__name__.lower() for agent in
+                                self.model.grid.get_cell_list_contents([self.next_step])]:
+                reward = -100
+
+            new_q_value = current_q_value + self.model.learning_rate * (
+                    reward + self.model.discount_factor * next_q_value - current_q_value)
+            self.q_table[(current_state, action)] = new_q_value
+
+    def harvest(self):
+        cellmates = self.model.grid.get_cell_list_contents([self.pos])
+        for agent in cellmates:
+            if isinstance(agent, MaizAgent):
+                agent.maiz = 0
+                self.model.grid.remove_agent(agent)
+
+                # Actualizar el valor Q para el par estado-acción actual
+                current_state = self.pos
+                action = 'harvest'
+
+                current_q_value = self.q_table.get((current_state, action), 0)
+
+                reward = 0  # Sin recompensa por la cosecha
+                new_q_value = current_q_value + self.model.learning_rate * (reward - current_q_value)
+                self.q_table[(current_state, action)] = new_q_value
+
+    def step(self):
+        self.move()
+        self.harvest()
+
+class RecolectorAgent(Agent):
+    def __init__(self, unique_id, model, q_table, tractor):
+        super().__init__(unique_id, model)
+        self.new_agent_property = 0
+        self.q_table = q_table
+        self.tractor = tractor  # Agrega una referencia al tractor asociado
+
+    def move(self):
+        # Obtén la posición futura del tractor
+        tractor_pos = self.model.grid.get_coordinates(self.tractor)
+
+        neighbors = self.model.grid.get_neighborhood(
+            tractor_pos,
+            moore=True,
+            include_center=False
+        )
+
+        neighbors = [pos for pos in neighbors if
+                      0 < pos[0] < self.model.grid.width - 1 and 0 < pos[1] < self.model.grid.height
+                      and pos not in self.model.obstacle_positions]
+
+        open_positions = [pos for pos in neighbors if not
+                          any(isinstance(agent, (TractorAgent, ObstacleAgent, RecolectorAgent))
+                              for agent in self.model.grid.get_cell_list_contents(pos))]
+
+        if open_positions:
+            self.next_step = random.choice(open_positions)
+            self.model.grid.move_agent(self, self.next_step)
+            self.number_of_steps += 1
+
+            # Actualizar el valor de Q para el par estado-acción actual
+            current_state = self.pos
+            next_state = self.next_step
+            action = 'move'
+            current_q_value = self.q_table.get((current_state, action), 0)
+            next_q_value = max(self.q_table.get((next_state, a), 0) for a in ['move', 'harvest'])
+            reward = 0
+
+            new_q_value = current_q_value + self.model.learning_rate * (
+                    reward + self.model.discount_factor * next_q_value - current_q_value)
+            self.q_table[(current_state, action)] = new_q_value
+
+    def custom_action(self):
+        pass
+
+    def step(self):
+        self.move()
+        self.custom_action()
+
+
+class QLearningModel(Model):
+    def __init__(self, T, M, O, width, height, learning_rate, discount_factor):
+        self.num_tractors = T
+        self.num_maiz = M
+        self.num_obstacles = O
+        self.obstacle_positions = [(6, 3), (2, 3), (4, 6), (7, 4), (8, 8)]
+        self.learning_rate = learning_rate
+        self.discount_factor = discount_factor
+        self.setup_model(width, height)
+
+
+    def setup_model(self, width, height):
+        # Clear the scheduler and reset the grid
+        self.schedule = RandomActivation(self)
+        self.grid = MultiGrid(width + 2, height + 2, False)
+
+        maiz_coordinates = [(i + 1, j + 1) for i in range(width) for j in range(height)]
+
+        # Place maiz agents excluding positions where obstacles are located
+        maiz_coordinates = [coord for coord in maiz_coordinates if coord not in self.obstacle_positions]
+
+        for i, coords in enumerate(maiz_coordinates):
+            m = MaizAgent(i, self)
+            self.schedule.add(m)
+            self.grid.place_agent(m, coords)
+
+        # Place obstacles at specified positions
+        for i, pos in enumerate(self.obstacle_positions):
+            o = ObstacleAgent(i + self.num_maiz, self)
+            self.schedule.add(o)
+            self.grid.place_agent(o, pos)
+
+        start = self.num_maiz + self.num_obstacles + 1
+        finish = self.num_tractors + start
+
+        q_table = {}
+
+        for i in range(start, finish):
+            if i % 2 == 0:
+                t = TractorAgent(i, self, q_table)
+                self.schedule.add(t)
+                self.grid.place_agent(t, (0, 0))
+            else:
+                t = TractorAgent(i, self, q_table)
+                self.schedule.add(t)
+                self.grid.place_agent(t, (width + 1, height + 1))
+
+        self.datacollector = DataCollector(model_reporters={'Grid': get_grid})
+
+
+    def maiz_counter(self):
+        maiz_left = 0
+        for cell in self.grid.coord_iter():
+            cell_content, cell_pos = cell
+            if len(cell_content) != 0:
+                if hasattr(cell_content[0], 'maiz'):
+                    agent = cell_content[0]
+                    if agent.maiz == 1:
+                        maiz_left += 1
+        return maiz_left
+
+    def step(self):
+        self.datacollector.collect(self)
+        self.schedule.step()
+        self.maiz_left_total = self.maiz_counter()
+        self.train_q_learning()  # Llama a train_q_learning después de cada paso del modelo
+
+    def train_q_learning(self):
+        for agent in self.schedule.agents:
+            if isinstance(agent, QLearningAgent):
+                agent.step()
+
+
+GRID_SIZE = 10
+num_tractors = 2
+num_obstacles = 5  # Update the number of obstacles to match the specified positions
+num_maiz = 100 - num_obstacles
+num_generations = 200
+learning_rate = 0.1
+discount_factor = 0.9
+num_steps = 0
+
+start_time = time.time()
+model = QLearningModel(num_tractors, num_maiz, num_obstacles, GRID_SIZE, GRID_SIZE, learning_rate, discount_factor)
+for i in range(num_generations):
+    model.step()
+    if i == (num_generations - 1):
+        for cell in model.grid.coord_iter():
+            cell_content, cell_pos = cell
+            if len(cell_content) != 0:
+                if hasattr(cell_content[0], 'quantity_of_steps'):
+                    agent = cell_content[0]
+                    num_steps += agent.quantity_of_steps
+
+print(f"total number of steps: {num_steps - num_tractors}")
+print(f"Execution time: ", str(datetime.timedelta(seconds=(time.time() - start_time))))
+
+all_grid = model.datacollector.get_model_vars_dataframe()
+final_maiz_left = model.maiz_left_total
+
+print(f"total maiz left: {final_maiz_left}")
+
+fig, axis = plt.subplots(figsize=(5, 5))
+axis.set_xticks([])
+axis.set_yticks([])
+
+colors = [
+    (0.8, 0.8, 0.8),  # Azul (color del agente Tractor)
+    (1, 1, 1),  # Green (empty cell inside the border)
+    (0, 1, 0),  # Rojo (color del agente Maiz)
+
+    (0, 0.6, 0),  # Light gray (color for border cells)
+
+    (0, 0, 0),  # Negro (color del agente Obstacle)
+]
+
+cmap_custom = ListedColormap(colors)
+patch = axis.imshow(all_grid.iloc[0].iloc[0], cmap=cmap_custom)
+plt.show()
+
+prev_lines = []
+
+# Create the initial contour lines for the full grid
+for x in range(GRID_SIZE):
+    h_line, = axis.plot([x - 0.5, x - 0.5], [-0.5, GRID_SIZE + 0.5], color='gray', linestyle="-", linewidth=0.5)
+    prev_lines.append(h_line)
+
+for y in range(GRID_SIZE):
+    v_line, = axis.plot([-0.5, GRID_SIZE + 0.5], [y - 0.5, y - 0.5], color='gray', linestyle="-", linewidth=0.5)
+    prev_lines.append(v_line)
+
+# ...
+
+def animate(i):
+    global prev_lines
+    for line in prev_lines:
+        line.remove()
+
+    model.step()
+    model.train_q_learning()  # Llama a train_q_learning después de actualizar el modelo
+
+    patch.set_data(all_grid.iloc[i].iloc[0])
+
+    anim_lines = []
+
+    # Update the contour lines for the full grid
+    for x in range(GRID_SIZE + 3):
+        h_line, = axis.plot([x - 0.5, x - 0.5], [-0.5, GRID_SIZE + 0.5], color='gray', linestyle="-", linewidth=0.5)
+        anim_lines.append(h_line)
+
+    for y in range(GRID_SIZE + 3):
+        v_line, = axis.plot([-0.5, GRID_SIZE + 0.5], [y - 0.5, y - 0.5], color='gray', linestyle="-", linewidth=0.5)
+        anim_lines.append(v_line)
+
+    prev_lines = anim_lines
+
+    if i == (num_generations - 1):
+        print('Training complete!')
+        #imprimir_matriz_despues_entrenamiento(q_values)
+anim = animation.FuncAnimation(fig, animate, frames=num_generations)
+anim
+
