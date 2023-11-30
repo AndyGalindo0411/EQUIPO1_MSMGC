@@ -1,0 +1,56 @@
+pip install Flask #Se instala la libreria 
+
+#ESTO ES LO DE PYTHON
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api', methods=['POST'])
+def api():
+    data = request.get_json()
+    # Realiza acciones con los datos recibidos de Unity
+    response_data = {'message': 'Data received successfully'}
+    return jsonify(response_data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+#ESTO ES LO DE UNITY 
+using UnityEngine;
+using UnityEngine.Networking;
+
+public class UnityPythonCommunication : MonoBehaviour
+{
+    void Start()
+    {
+        StartCoroutine(SendDataToPython());
+    }
+
+    IEnumerator SendDataToPython()
+    {
+        string url = "http://localhost:5000/api";  // Ajusta el puerto si es necesario
+        string jsonData = "{ \"key\": \"value\" }";  // Datos que deseas enviar
+
+        using (UnityWebRequest request = UnityWebRequest.Post(url, jsonData))
+        {
+            request.SetRequestHeader("Content-Type", "application/json");
+            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Data sent successfully");
+            }
+            else
+            {
+                Debug.LogError("Error sending data: " + request.error);
+            }
+        }
+    }
+}
+
+#ESTO ES COMO VAMOS A CORRERLO DESDE EL COMANDO
+python app.py
